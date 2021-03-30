@@ -1,3 +1,57 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+@if (Initials == "")
+{
+    <h1 class="text-center">Select Your Two Initials To Begin</h1>
+}
+else
+{
+    <h1 class="text-center">@Initials</h1>
+}
+
+<hr/>
+<button @onclick="() => OnInitialClick('A')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>A</b></button>
+<button @onclick="() => OnInitialClick('B')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>B</b></button>
+<button @onclick="() => OnInitialClick('C')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>C</b></button>
+<button @onclick="() => OnInitialClick('D')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>D</b></button>
+<button @onclick="() => OnInitialClick('E')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>E</b></button>
+<button @onclick="() => OnInitialClick('F')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>F</b></button>
+<button @onclick="() => OnInitialClick('G')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>G</b></button>
+<button @onclick="() => OnInitialClick('H')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>H</b></button>
+<button @onclick="() => OnInitialClick('I')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>I</b></button>
+<button @onclick="() => OnInitialClick('J')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>J</b></button>
+<button @onclick="() => OnInitialClick('K')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>K</b></button>
+<button @onclick="() => OnInitialClick('L')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>L</b></button>
+<button @onclick="() => OnInitialClick('M')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>M</b></button>
+<button @onclick="() => OnInitialClick('N')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>N</b></button>
+<button @onclick="() => OnInitialClick('O')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>O</b></button>
+<button @onclick="() => OnInitialClick('P')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>P</b></button>
+<button @onclick="() => OnInitialClick('Q')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>Q</b></button>
+<button @onclick="() => OnInitialClick('R')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>R</b></button>
+<button @onclick="() => OnInitialClick('S')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>S</b></button>
+<button @onclick="() => OnInitialClick('T')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>T</b></button>
+<button @onclick="() => OnInitialClick('U')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>U</b></button>
+<button @onclick="() => OnInitialClick('V')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>V</b></button>
+<button @onclick="() => OnInitialClick('W')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>W</b></button>
+<button @onclick="() => OnInitialClick('X')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>X</b></button>
+<button @onclick="() => OnInitialClick('Y')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>Y</b></button>
+<button @onclick="() => OnInitialClick('Z')" type="button" class="btn btn-info btn-lg" style="width: 200px;height: 200px; border-width: 10px; border-color: white"><b>Z</b></button>
+
+@inject NavigationManager NavManager
+
+@code
+{
+    string Initials = "";
+
+    void OnInitialClick(char letter)
+    {
+        if (Initials.Length < 2)
+        {
+            Initials += letter;
+            if (Initials.Length == 2)
+            {
+                NavManager.NavigateTo("/Names/"+Initials);
+            }
+        }
+    }
+}

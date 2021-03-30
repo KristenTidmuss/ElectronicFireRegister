@@ -1,0 +1,18 @@
+﻿@page "/Names"
+@page "/Names/{Initials]"
+
+<h3 class="text-center">Select Your Name To Sign-In</h3>
+
+
+@using ElectronicFireRegister.Shared
+@inject HttpClient Http
+@code {
+    [Parameter]
+    public string Initials { get; set; }
+    List<string> NamesList = new List<string>();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        NamesList = await Http.GetFromJsonAsync<List<string>>("API/"+Initials);
+    }
+}
